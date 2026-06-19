@@ -1,0 +1,5 @@
+.deploy-*/
+.agents/
+.codex/
+node_modules/
+.npm-cache/
