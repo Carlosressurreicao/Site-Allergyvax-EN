@@ -137,19 +137,68 @@
       display: grid;
       align-items: center;
       border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(90deg, rgba(247, 250, 249, .96) 0%, rgba(247, 250, 249, .88) 46%, rgba(247, 250, 249, .30) 100%),
-        url("./frontend/home/cover.jpg") center / cover no-repeat;
+      background: var(--white);
     }
 
     .hero-inner {
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 48px 0 76px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(320px, .78fr);
-      gap: 42px;
+      padding: 54px 0 58px;
+      text-align: center;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: #16802d;
+      font-size: clamp(54px, 9vw, 118px);
+      font-weight: 350;
+      line-height: .92;
+    }
+
+    .brand-lockup strong {
+      color: #006329;
+      font-weight: 800;
+    }
+
+    .brand-lockup sup {
+      top: -.52em;
+      position: relative;
+      color: #006329;
+      font-size: .2em;
+      font-weight: 800;
+    }
+
+    .dotted-mark {
+      width: clamp(68px, 8vw, 102px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 0, #65b82e 0 4px, transparent 5px);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .dotted-mark::before,
+    .dotted-mark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 85% 15%, #46a72e 0 4px, transparent 5px),
+        radial-gradient(circle at 100% 50%, #238b2c 0 4px, transparent 5px),
+        radial-gradient(circle at 85% 85%, #18812e 0 4px, transparent 5px),
+        radial-gradient(circle at 50% 100%, #1f8a2e 0 4px, transparent 5px),
+        radial-gradient(circle at 15% 85%, #42a52e 0 4px, transparent 5px),
+        radial-gradient(circle at 0 50%, #66b82e 0 4px, transparent 5px),
+        radial-gradient(circle at 15% 15%, #70bd30 0 4px, transparent 5px);
+    }
+
+    .dotted-mark::after {
+      transform: rotate(22.5deg);
+      opacity: .96;
     }
 
     .eyebrow {
@@ -169,21 +218,91 @@
       letter-spacing: 0;
     }
 
-    .hero-copy {
-      max-width: 640px;
-      margin: 24px 0 0;
-      color: #40555b;
-      font-size: 21px;
-      line-height: 1.55;
+    .hero h1 {
+      max-width: none;
+      margin-top: 26px;
+      color: #0b2964;
+      font-size: clamp(38px, 6vw, 74px);
+      line-height: 1.05;
     }
 
-    .hero-tagline {
-      max-width: 680px;
-      margin: 18px 0 0;
-      color: var(--teal-dark);
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.12;
+    .hero h1 span,
+    .green-text {
+      color: #006b2d;
+    }
+
+    .title-rule {
+      width: 82px;
+      height: 2px;
+      margin: 22px auto 24px;
+      background: #006b2d;
+    }
+
+    .hero-copy {
+      max-width: 920px;
+      margin: 0 auto;
+      color: #172138;
+      font-size: clamp(24px, 3vw, 42px);
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    .hero-pillars {
+      margin: 48px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      color: #0b2964;
+      font-size: clamp(17px, 2vw, 28px);
       font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .hero-pillars span:nth-child(odd) {
+      color: #006b2d;
+    }
+
+    .hero-pillars .divider {
+      width: 1px;
+      height: 34px;
+      background: #66737a;
+    }
+
+    .hero-result {
+      margin: 34px 0 0;
+      color: #172138;
+      font-size: clamp(23px, 3vw, 35px);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .creator {
+      margin-top: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      color: #172138;
+      font-size: 19px;
+    }
+
+    .creator-signature {
+      padding-left: 22px;
+      border-left: 1px solid #66737a;
+      color: #0b2964;
+      font-family: "Segoe Script", "Lucida Handwriting", cursive;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1;
+    }
+
+    .creator-role {
+      display: block;
+      margin-top: 8px;
+      color: #006b2d;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
     }
 
     .hero-actions {
@@ -193,76 +312,229 @@
       gap: 12px;
     }
 
-    .metrics {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      max-width: 650px;
-      border: 1px solid rgba(217, 229, 227, .92);
-      background: rgba(255, 255, 255, .78);
+    .hero .hero-actions {
+      justify-content: center;
     }
 
-    .metric {
-      min-height: 96px;
-      padding: 18px;
-      border-right: 1px solid var(--line);
+    .ecosystem {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
     }
 
-    .metric:last-child {
-      border-right: none;
+    .ecosystem::after {
+      content: "";
+      position: absolute;
+      right: -180px;
+      bottom: -180px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 107, 45, .15);
+      box-shadow:
+        0 0 0 12px rgba(0, 107, 45, .035),
+        0 0 0 26px rgba(0, 107, 45, .03),
+        0 0 0 42px rgba(0, 107, 45, .025),
+        0 0 0 62px rgba(0, 107, 45, .02);
+      pointer-events: none;
     }
 
-    .metric strong {
-      display: block;
-      font-size: 28px;
-      color: var(--teal-dark);
-      line-height: 1;
+    .ecosystem .section-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
     }
 
-    .metric span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
+    .ecosystem .brand-lockup {
+      font-size: clamp(42px, 6vw, 82px);
+    }
+
+    .ecosystem h2 {
+      margin-top: 28px;
+      color: #0b2964;
+      font-size: clamp(31px, 4vw, 44px);
+    }
+
+    .ecosystem-lead {
+      margin: 16px auto 0;
+      color: #0b2964;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 750;
+      line-height: 1.2;
+    }
+
+    .ecosystem-subtitle {
+      margin: 14px auto 0;
+      color: #454b55;
+      font-size: clamp(21px, 2.4vw, 28px);
       line-height: 1.35;
     }
 
-    .phone-stack {
-      min-height: 640px;
+    .benefit-track {
       position: relative;
+      margin: 36px 0 0;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 22px;
     }
 
-    .phone {
+    .benefit-track::before {
+      content: "";
       position: absolute;
-      width: min(315px, 76vw);
-      aspect-ratio: 390 / 760;
-      border: 11px solid #10242a;
-      border-radius: 36px;
-      background: #10242a;
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      left: 8%;
+      right: 8%;
+      top: 60px;
+      height: 1px;
+      background: #d7dedb;
     }
 
-    .phone.primary {
-      right: 0;
-      top: 14px;
+    .home-benefit {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      align-content: start;
+      min-height: 292px;
+    }
+
+    .home-benefit::before {
+      content: "";
+      position: absolute;
+      top: 55px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #42a52e;
+      z-index: 1;
+    }
+
+    .benefit-icon {
+      position: relative;
       z-index: 2;
-    }
-
-    .phone.secondary-phone {
-      left: 0;
-      bottom: 18px;
-      width: min(255px, 64vw);
-      opacity: .96;
-    }
-
-    .phone img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: top center;
+      width: 122px;
+      height: 122px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #d9e5d8;
+      border-radius: 50%;
       background: var(--white);
+      color: #248a32;
+      box-shadow: 0 9px 22px rgba(18, 35, 39, .12);
+    }
+
+    .benefit-icon svg {
+      width: 64px;
+      height: 64px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .home-benefit h3 {
+      margin: 24px 0 0;
+      color: #0b2964;
+      font-size: 18px;
+      line-height: 1.22;
+      text-transform: uppercase;
+    }
+
+    .mini-rule {
+      width: 58px;
+      height: 1px;
+      margin: 14px auto;
+      background: #42a52e;
+    }
+
+    .home-benefit p {
+      margin: 0;
+      color: #3f4852;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .outcome-ribbon {
+      max-width: 860px;
+      min-height: 58px;
+      margin: 28px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 10px 24px;
+      border: 1px solid #cbdacf;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .92);
+      color: #0b2964;
+      font-size: clamp(19px, 2vw, 25px);
+      font-weight: 800;
+    }
+
+    .ribbon-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: #edf8ef;
+      color: #248a32;
+    }
+
+    .ribbon-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ecosystem-foot {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1.3fr repeat(3, 1fr);
+      gap: 18px;
+      align-items: center;
+      color: #34414b;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .founder-line {
+      color: #006b2d;
+      font-family: "Segoe Script", "Lucida Handwriting", cursive;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .founder-line span {
+      display: block;
+      margin-top: 8px;
+      color: #34414b;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+    }
+
+    .proof-point {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 10px;
+      align-items: center;
+      min-height: 54px;
+      padding-left: 18px;
+      border-left: 1px solid #c7d1cf;
+    }
+
+    .proof-point svg {
+      width: 32px;
+      height: 32px;
+      stroke: #0b2964;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     section {
@@ -734,15 +1006,27 @@
         min-height: auto;
       }
 
-      .hero-inner,
       .preview-layout,
       .contact .section-inner {
         grid-template-columns: 1fr;
       }
 
-      .phone-stack {
-        min-height: 560px;
-        max-width: 540px;
+      .hero-pillars,
+      .creator {
+        flex-wrap: wrap;
+      }
+
+      .benefit-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .benefit-track::before,
+      .home-benefit::before {
+        display: none;
+      }
+
+      .ecosystem-foot {
+        grid-template-columns: 1fr 1fr;
       }
 
       .feature-grid,
@@ -781,11 +1065,35 @@
         padding: 42px 0 58px;
       }
 
-      .hero-copy {
-        font-size: 18px;
+      .brand-lockup {
+        gap: 10px;
       }
 
-      .metrics,
+      .hero-copy {
+        font-size: 22px;
+      }
+
+      .hero-pillars {
+        gap: 14px;
+      }
+
+      .hero-pillars .divider {
+        display: none;
+      }
+
+      .creator {
+        display: block;
+      }
+
+      .creator-signature {
+        display: block;
+        margin-top: 12px;
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .benefit-track,
+      .ecosystem-foot,
       .feature-grid,
       .benefit-list,
       .screens,
@@ -803,21 +1111,6 @@
       .metric:last-child,
       .step:last-child {
         border-bottom: none;
-      }
-
-      .phone-stack {
-        min-height: 500px;
-      }
-
-      .phone.primary {
-        left: 50%;
-        right: auto;
-        transform: translateX(-42%);
-      }
-
-      .phone.secondary-phone {
-        left: 0;
-        width: min(230px, 58vw);
       }
 
       .screen-card {
@@ -863,36 +1156,154 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-inner">
-        <div>
-          <p class="eyebrow">Software for allergen immunotherapy</p>
-          <h1 id="hero-title">AllergyVax</h1>
-          <p class="hero-tagline">Empower immunotherapy treatment in your clinic with a connected digital workflow.</p>
-          <p class="hero-copy">A practical management platform for clinics that need to organize immunotherapy records, monitor adherence, collect asthma and rhinitis scores, and keep patients closer throughout treatment.</p>
-          <div class="hero-actions">
-            <a class="button" href="#contact">Request a demo</a>
-            <a class="button secondary" href="#screens">View app screens</a>
-          </div>
-          <div class="metrics" aria-label="Platform highlights">
-            <div class="metric">
-              <strong>3-5 years</strong>
-              <span>Support for long immunotherapy journeys</span>
-            </div>
-            <div class="metric">
-              <strong>ACT</strong>
-              <span>Asthma control follow-up</span>
-            </div>
-            <div class="metric">
-              <strong>RCAT</strong>
-              <span>Rhinitis control follow-up</span>
-            </div>
-          </div>
+        <div class="brand-lockup" aria-label="AllergyVax">
+          <span>Allergy<strong>Vax</strong><sup>&reg;</sup></span>
         </div>
-        <div class="phone-stack" aria-hidden="true">
-          <div class="phone primary">
-            <img src="./assets/screens/doctor-workspace.png" alt="" />
+        <h1 id="hero-title">What is <span>AllergyVax<sup>&reg;</sup></span>?</h1>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="hero-copy">
+          The <span class="green-text">first</span> immunotherapy <span class="green-text">ecosystem</span> for allergens<br />
+          with <span class="green-text">patient-centered care</span>,<br />
+          powered by <span class="green-text">mobile technology</span> and <span class="green-text">AI</span>.
+        </p>
+        <div class="hero-pillars" aria-label="AllergyVax pillars">
+          <span>Patient-centered care</span>
+          <span class="divider" aria-hidden="true"></span>
+          <span>Mobile technology</span>
+          <span class="divider" aria-hidden="true"></span>
+          <span>AI-powered</span>
+        </div>
+        <p class="hero-result">Better experience. &nbsp; Higher adherence. &nbsp; Stronger outcomes.</p>
+        <div class="hero-actions">
+          <a class="button" href="#contact">Request a demo</a>
+          <a class="button secondary" href="#screens">View app screens</a>
+        </div>
+        <div class="creator" aria-label="Created by Fernando Aarestrup">
+          <span>Created by</span>
+          <span class="creator-signature">Fernando Aarestrup<span class="creator-role">Founder and CEO</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecosystem" aria-labelledby="ecosystem-title">
+      <div class="section-inner">
+        <div class="brand-lockup" aria-label="AllergyVax">
+          <span class="dotted-mark" aria-hidden="true"></span>
+          <span>Allergy<strong>Vax</strong><sup>&reg;</sup></span>
+        </div>
+        <h2 id="ecosystem-title">Why Implement AllergyVax<sup>&reg;</sup>?</h2>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="ecosystem-lead">More Than an App. <span class="green-text">A Complete Immunotherapy Ecosystem.</span></p>
+        <p class="ecosystem-subtitle">Building the Future of Immunotherapy <span class="green-text">Together.</span></p>
+
+        <div class="benefit-track" aria-label="Implementation benefits">
+          <article class="home-benefit">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M23 28a9 9 0 1 0-9-9 9 9 0 0 0 9 9Z" />
+                <path d="M9 50v-5a14 14 0 0 1 20-13" />
+                <path d="M44 30a8 8 0 1 0-8-8" />
+                <path d="M37 34a13 13 0 0 1 18 12v4" />
+                <path d="M40 51l5 5 10-13" />
+              </svg>
+            </div>
+            <h3>Increased Patient Adherence</h3>
+            <div class="mini-rule" aria-hidden="true"></div>
+            <p>Better engagement, smart reminders and real support that drive treatment adherence.</p>
+          </article>
+          <article class="home-benefit">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M10 50h44" />
+                <path d="M15 42V29h8v13" />
+                <path d="M30 42V20h8v22" />
+                <path d="M45 42V12h8v30" />
+                <path d="M12 20c12 0 26-6 38-18" />
+                <path d="M42 2h10v10" />
+                <circle cx="47" cy="48" r="10" />
+                <path d="M47 42v12" />
+                <path d="M43 46h7a3 3 0 0 1 0 6h-7" />
+              </svg>
+            </div>
+            <h3>Increased Doctor Revenue</h3>
+            <div class="mini-rule" aria-hidden="true"></div>
+            <p>Improve treatment completion and patient loyalty, driving sustainable practice growth.</p>
+          </article>
+          <article class="home-benefit">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M25 31a9 9 0 1 0-9-9 9 9 0 0 0 9 9Z" />
+                <path d="M8 55v-7a17 17 0 0 1 34 0v7" />
+                <path d="M45 8l3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1Z" />
+              </svg>
+            </div>
+            <h3>Innovation in the Patient Experience</h3>
+            <div class="mini-rule" aria-hidden="true"></div>
+            <p>A modern, intuitive and personalized experience that differentiates your practice.</p>
+          </article>
+          <article class="home-benefit">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M12 32h12" />
+                <path d="M8 22h9" />
+                <path d="M8 42h9" />
+                <path d="M32 10a22 22 0 1 1-2 44" />
+                <path d="M32 21v13h12" />
+              </svg>
+            </div>
+            <h3>Time Savings</h3>
+            <div class="mini-rule" aria-hidden="true"></div>
+            <p>Automated workflows and intelligent tools that reduce manual tasks and free up valuable time.</p>
+          </article>
+          <article class="home-benefit">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M20 7h24l4 5v39a6 6 0 0 1-6 6H22a6 6 0 0 1-6-6V12Z" />
+                <path d="M25 7v8h14V7" />
+                <path d="M24 42l8-8 6 5 9-13" />
+                <path d="M40 51l5 5 10-13" />
+              </svg>
+            </div>
+            <h3>Real-time Clinical Monitoring &amp; Adherence</h3>
+            <div class="mini-rule" aria-hidden="true"></div>
+            <p>Monitor symptoms, adherence and progress in real time and make data-driven decisions with confidence.</p>
+          </article>
+        </div>
+
+        <div class="outcome-ribbon">
+          <span class="ribbon-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32">
+              <path d="M11 14a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" />
+              <path d="M3 27v-4a8 8 0 0 1 13-6" />
+              <path d="M21 13a4 4 0 1 0-3-6" />
+              <path d="M18 18a8 8 0 0 1 11 7v2" />
+            </svg>
+          </span>
+          <span>Empowering Physicians . Supporting Staff . Enhancing Patient Outcomes.</span>
+        </div>
+
+        <div class="ecosystem-foot" aria-label="Platform proof points">
+          <div class="founder-line">Fernando M. Aarestrup, <span>MD, PhD, FAAAAI<br />Founder &amp; CEO, AllergyVax&reg;</span></div>
+          <div class="proof-point">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M16 3 27 8v8c0 7-5 11-11 13C10 27 5 23 5 16V8Z" />
+              <path d="m10 16 4 4 8-9" />
+            </svg>
+            <span>Evidence-Based<br />Immunotherapy</span>
           </div>
-          <div class="phone secondary-phone">
-            <img src="./assets/screens/patient-menu.png" alt="" />
+          <div class="proof-point">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect x="7" y="14" width="18" height="13" rx="2" />
+              <path d="M11 14V9a5 5 0 0 1 10 0v5" />
+              <path d="M16 20v3" />
+            </svg>
+            <span>Secure. Compliant.<br />Built for Healthcare.</span>
+          </div>
+          <div class="proof-point">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M10 25h14a6 6 0 0 0 0-12h-1A9 9 0 0 0 6 17a5 5 0 0 0 4 8Z" />
+            </svg>
+            <span>Cloud-Based.<br />AI-Powered.</span>
           </div>
         </div>
       </div>
